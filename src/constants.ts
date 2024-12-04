@@ -1,10 +1,9 @@
-import {platform} from "os";
+import {platform} from "node:os";
+import { exit } from "node:process";
 
 export const LINK_BDS_VERSIONS = "https://raw.githubusercontent.com/Bedrock-OSS/BDS-Versions/main/versions.json";
 export const LINK_BDS_CDN = `https://www.minecraft.net/bedrockdedicatedserver`;
-{
-    let pf = platform() as string;
-    if(pf === "win32") pf = "win";
-    else if(pf !== "linux") throw new ReferenceError("Invalid operating system: " + pf);
-}
-export const OS = platform() === "win32"?"win":"linux";
+export const OS = platform();
+export const REQUESTED_VERSION = process.env["INPUT_VERSION"];
+export const USE_PREVIEW = process.env["INPUT_USE-PREVIEW"]?.toLocaleLowerCase() === "true";
+export const OUT_DIR = process.env["INPUT_OUT-DIR"];

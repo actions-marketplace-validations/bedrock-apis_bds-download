@@ -10,6 +10,11 @@ inputs:
     description: "Specific BDS version or tag"
     required: true
     default: "latest"
+  
+  use-preview:
+    description: "When ever to use preview or stable, true === preview"
+    required: true
+    default: false
 
 runs:
   using: "node20"
