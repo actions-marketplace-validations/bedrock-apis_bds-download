@@ -9,5 +9,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: ./
+              with:
+                out-dir: "bin"
+                version: 1.21.40.25
+                use_preview: true
             - name: Test Case
               run: ls -R .
