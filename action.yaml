@@ -12,4 +12,4 @@ inputs:
 
 runs:
   using: "node20"
-  main: "dist/main"
+  main: "dist/main.js"
