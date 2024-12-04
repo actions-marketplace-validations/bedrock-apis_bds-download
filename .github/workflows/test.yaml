@@ -15,6 +15,13 @@ jobs:
                 use_preview: true
             - name: Test Case
               run: ls ./bin/
+            - uses: bedrock-apis/bds-download@v1
+              with:
+                out_dir: "2"
+                version: 1.21.40.25
+                use_preview: true
+            - name: Test Case 2
+              run: ls ./bin2/
     windows-test:
         runs-on: windows-latest
         steps:
