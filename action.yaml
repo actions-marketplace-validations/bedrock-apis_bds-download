@@ -1,0 +1,15 @@
+name: "Download BDS"
+description: "Downloads BDS and extracts its content in provided directory"
+author: "ConMaster2112"
+inputs:
+  out-dir:
+    description: "Directory for BDS installation"
+    required: true
+  version:
+    description: "Specific BDS version or tag"
+    required: true
+    default: "latest"
+
+runs:
+  using: "node20"
+  main: "dist/index"
