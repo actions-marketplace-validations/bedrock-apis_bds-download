@@ -1690,10 +1690,12 @@ async function main() {
 		console.error("Unsupported operating system: " + OS);
 		return -1;
 	}
+	console.log("Fetching available versions");
 	if (!response.ok) {
 		console.error("Failed to fetch bds versions!");
 		return -1;
 	}
+	console.log("Resolving versions . . .");
 	const SYSTEM = OS === "win32" ? "windows" : OS;
 	const { [SYSTEM]: { [USE_PREVIEW ? "preview" : "stable"]: LATEST, [USE_PREVIEW ? "preview_versions" : "versions"]: VERSIONS } } = await response.json();
 	let version = REQUESTED_VERSION ?? "latest";
@@ -1702,13 +1704,17 @@ async function main() {
 		console.error("Unknown version format: " + version);
 		return -1;
 	}
+	console.log(`Version resolved: ${version} isPreview: ${USE_PREVIEW} os: ${OS}`);
 	const LINK = `${LINK_BDS_CDN}/bin-${OS === "win32" ? "win" : OS}${USE_PREVIEW ? "-preview" : ""}/bedrock-server-${version}.zip`;
 	const BDS_STREAM = await fetch(LINK);
+	console.log("Fetching bds from: " + LINK);
 	if (!BDS_STREAM.ok) {
 		console.error("CDN file not found: " + LINK);
 		return -1;
 	}
+	console.log("Downloading and extracting to: " + OUT_DIR);
 	await pipeline(BDS_STREAM.body, (0, import_unzip.Extract)({ path: OUT_DIR ?? "bds_bin" }));
+	console.log("BDS successfully downloaded at '" + OUT_DIR + "'");
 	return 0;
 }
 main().then(exit, (e) => {

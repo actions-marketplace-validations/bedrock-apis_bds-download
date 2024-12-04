@@ -13,12 +13,15 @@ async function main(): Promise<number>{
         return -1;
     }
     
+    console.log("Fetching available versions");
+
     // Check if the response is right
     if(!response.ok) {
         console.error("Failed to fetch bds versions!");
         return -1;
     }
     
+    console.log("Resolving versions . . .");
     
     const SYSTEM = OS === "win32"?"windows":OS;
     const {
@@ -39,9 +42,13 @@ async function main(): Promise<number>{
         return -1;
     }
 
+    console.log(`Version resolved: ${version} isPreview: ${USE_PREVIEW} os: ${OS}`);
+
     // https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.60.22.zip
     const LINK = `${LINK_BDS_CDN}/bin-${OS === "win32"?"win":OS}${USE_PREVIEW?"-preview":""}/bedrock-server-${version}.zip`;
     const BDS_STREAM = await fetch(LINK);
+
+    console.log("Fetching bds from: " + LINK);
 
     // Check for stream validity
     if(!BDS_STREAM.ok){
@@ -49,11 +56,15 @@ async function main(): Promise<number>{
         return -1;
     }
 
+    console.log("Downloading and extracting to: " + OUT_DIR);
+
     // Start resolving the stream
     await pipeline(
       BDS_STREAM.body as any,
       Extract({path: OUT_DIR??"bds_bin"}) as any
     );
+
+    console.log("BDS successfully downloaded at '" + OUT_DIR + "'");
 
     // Return as successful
     return 0;
