@@ -35,8 +35,9 @@ const LINK_BDS_VERSIONS = "https://raw.githubusercontent.com/Bedrock-OSS/BDS-Ver
 const LINK_BDS_CDN = `https://www.minecraft.net/bedrockdedicatedserver`;
 const OS = platform();
 const REQUESTED_VERSION = process.env["INPUT_VERSION"];
-const USE_PREVIEW = process.env["INPUT_USE-PREVIEW"]?.toLocaleLowerCase() === "true";
-const OUT_DIR = process.env["INPUT_OUT-DIR"];
+const USE_PREVIEW = process.env["INPUT_USE_PREVIEW"]?.toLocaleLowerCase() === "true";
+console.log(process.env["INPUT_USE_PREVIEW"]);
+const OUT_DIR = process.env["INPUT_OUT_DIR"];
 
 //#endregion
 //#region node_modules/traverse/index.js
