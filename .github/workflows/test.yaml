@@ -10,7 +10,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: ./
               with:
-                out-dir: "bin"
+                out_dir: "bin"
                 version: 1.21.40.25
                 use_preview: true
             - name: Test Case

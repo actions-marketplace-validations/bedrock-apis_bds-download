@@ -5,5 +5,5 @@ export const LINK_BDS_VERSIONS = "https://raw.githubusercontent.com/Bedrock-OSS/
 export const LINK_BDS_CDN = `https://www.minecraft.net/bedrockdedicatedserver`;
 export const OS = platform();
 export const REQUESTED_VERSION = process.env["INPUT_VERSION"];
-export const USE_PREVIEW = process.env["INPUT_USE-PREVIEW"]?.toLocaleLowerCase() === "true";
-export const OUT_DIR = process.env["INPUT_OUT-DIR"];
+export const USE_PREVIEW = process.env["INPUT_USE_PREVIEW"]?.toLocaleLowerCase() === "true";
+export const OUT_DIR = process.env["INPUT_OUT_DIR"];

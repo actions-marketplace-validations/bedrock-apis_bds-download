@@ -2,17 +2,17 @@ name: "Download BDS"
 description: "Downloads BDS and extracts its content in provided directory"
 author: "ConMaster2112"
 inputs:
-  out-dir:
+  out_dir:
     description: "Directory for BDS installation"
     required: true
     default: bds_bin
-    
+
   version:
     description: "Specific BDS version or tag"
     required: true
     default: "latest"
   
-  use-preview:
+  use_preview:
     description: "When ever to use preview or stable, true === preview"
     required: true
     default: false
