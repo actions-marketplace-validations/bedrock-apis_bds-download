@@ -1,3 +1,4 @@
+import { createRequire } from "module";
 import { exit } from "node:process";
 import { platform } from "node:os";
 import { pipeline } from "node:stream/promises";
@@ -26,10 +27,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 	value: mod,
 	enumerable: true
 }) : target, mod));
-var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, { get: (a, b) => (typeof require !== "undefined" ? require : a)[b] }) : x)(function(x) {
-	if (typeof require !== "undefined") return require.apply(this, arguments);
-	throw Error("Calling `require` for \"" + x + "\" in an environment that doesn't expose the `require` function.");
-});
+var __require = /* @__PURE__ */ createRequire(import.meta.url);
 
 //#endregion
 //#region src/constants.ts
