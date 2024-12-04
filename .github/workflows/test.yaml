@@ -14,4 +14,4 @@ jobs:
                 version: 1.21.40.25
                 use_preview: true
             - name: Test Case
-              run: ls -R .
+              run: ls ./bin/
