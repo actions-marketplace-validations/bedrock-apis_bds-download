@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 
 jobs:
-    main-job:
+    linux-test:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -15,3 +15,14 @@ jobs:
                 use_preview: true
             - name: Test Case
               run: ls ./bin/
+    windows-test:
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: ./
+              with:
+                out_dir: "bin"
+                version: 1.21.40.25
+                use_preview: true
+            - name: Test Case
+              run: dir ./bin/

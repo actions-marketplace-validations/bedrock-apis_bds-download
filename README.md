@@ -31,8 +31,8 @@ jobs:
 | Input        | Description                                                    | Required | Default   |
 |--------------|----------------------------------------------------------------|----------|-----------|
 | `out_dir`    | Directory for BDS installation                                 | true     | `bds_bin` |
-| `version`    | Specific BDS version or tag (latest)                                 | true     | `latest`  |
-| `use_preview`| Whether to use preview or stable version (`true` === preview)  | true     | `false`   |
+| `version`    | Specific BDS version or tag (latest)                           | true     | `latest`  |
+| `use_preview`| Whether to use preview or stable version (preview when `true`) | true     | `false`   |
 
 ## Outputs
 
