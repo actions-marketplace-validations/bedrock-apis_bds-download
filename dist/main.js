@@ -1702,7 +1702,7 @@ async function main() {
 		console.error("Unknown version format: " + version);
 		return -1;
 	}
-	const LINK = `${LINK_BDS_CDN}/bin-${OS === "win32" ? "win" : OS}${USE_PREVIEW ? "-preview" : ""}bedrock-server-${version}.zip`;
+	const LINK = `${LINK_BDS_CDN}/bin-${OS === "win32" ? "win" : OS}${USE_PREVIEW ? "-preview" : ""}/bedrock-server-${version}.zip`;
 	const BDS_STREAM = await fetch(LINK);
 	if (!BDS_STREAM.ok) {
 		console.error("CDN file not found: " + LINK);

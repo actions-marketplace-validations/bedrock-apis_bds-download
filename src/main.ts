@@ -40,7 +40,7 @@ async function main(): Promise<number>{
     }
 
     // https://www.minecraft.net/bedrockdedicatedserver/bin-win-preview/bedrock-server-1.21.60.22.zip
-    const LINK = `${LINK_BDS_CDN}/bin-${OS === "win32"?"win":OS}${USE_PREVIEW?"-preview":""}bedrock-server-${version}.zip`;
+    const LINK = `${LINK_BDS_CDN}/bin-${OS === "win32"?"win":OS}${USE_PREVIEW?"-preview":""}/bedrock-server-${version}.zip`;
     const BDS_STREAM = await fetch(LINK);
 
     // Check for stream validity
